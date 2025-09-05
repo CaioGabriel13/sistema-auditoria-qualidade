@@ -1,0 +1,45 @@
+# Arquivos de configuração local
+config/database.php
+
+# Arquivos de log
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de cache
+cache/
+*.cache
+
+# Uploads de usuários
+uploads/
+files/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos do editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.production
+
+# Dependências (se houver)
+vendor/
+node_modules/
+
+# Arquivos específicos do XAMPP
+xampp/
