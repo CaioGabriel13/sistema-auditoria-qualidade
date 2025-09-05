@@ -5,8 +5,7 @@ requerLogin();
 $usuario = getUsuarioAtual();
 
 require_once 'config/database.php';
-$database = new Conexao();
-$db = $database->getConexao();
+$db = getConexao();
 
 // Buscar modelos de checklist disponíveis
 $query = "SELECT * FROM modelos_checklist ORDER BY nome";

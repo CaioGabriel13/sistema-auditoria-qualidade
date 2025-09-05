@@ -6,8 +6,7 @@ $usuario = getUsuarioAtual();
 $id_auditoria = $_GET['id'] ?? 0;
 
 require_once 'config/database.php';
-$database = new Conexao();
-$db = $database->getConexao();
+$db = getConexao();
 
 // Buscar dados da auditoria
 $query = "SELECT a.*, t.nome as nome_modelo, u1.nome as nome_auditor, u2.nome as nome_auditado 

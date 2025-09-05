@@ -13,13 +13,12 @@ function requerLogin() {
 }
 
 function getUsuarioAtual() {
-    if (!estaLogado()) {
+    if (!isset($_SESSION['id_usuario'])) {
         return null;
     }
     
-    require_once 'config/database.php';
-    $database = new Conexao();
-    $db = $database->getConexao();
+    require_once __DIR__ . '/../config/database.php';
+    $db = getConexao();
     
     $query = "SELECT * FROM usuarios WHERE id = :id";
     $stmt = $db->prepare($query);
@@ -39,10 +38,9 @@ function podeGerenciar() {
     return $usuario && in_array($usuario['funcao'], ['gerente', 'admin']);
 }
 
-function fazerLogin($email, $senha) {
-    require_once 'config/database.php';
-    $database = new Conexao();
-    $db = $database->getConexao();
+function autenticarUsuario($email, $senha) {
+    require_once __DIR__ . '/../config/database.php';
+    $db = getConexao();
     
     $query = "SELECT * FROM usuarios WHERE email = :email";
     $stmt = $db->prepare($query);

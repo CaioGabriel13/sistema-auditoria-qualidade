@@ -6,8 +6,7 @@ $usuario = getUsuarioAtual();
 
 // Buscar estatísticas do dashboard
 require_once 'config/database.php';
-$database = new Conexao();
-$db = $database->getConexao();
+$db = getConexao();
 
 // Total de auditorias
 $query = "SELECT COUNT(*) as total FROM auditorias";

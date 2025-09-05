@@ -10,8 +10,7 @@ if (!podeGerenciar()) {
 $usuario = getUsuarioAtual();
 
 require_once 'config/database.php';
-$database = new Conexao();
-$db = $database->getConexao();
+$db = getConexao();
 
 $sucesso = '';
 $erro = '';

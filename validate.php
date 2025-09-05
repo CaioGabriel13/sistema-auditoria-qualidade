@@ -84,8 +84,7 @@ echo "<div class='section'><h2>🗄️ Conexão com Banco de Dados</h2>";
 try {
     if (file_exists('config/database.php')) {
         require_once 'config/database.php';
-        $database = new Conexao();
-        $db = $database->getConexao();
+        $db = getConexao();
         
         if ($db) {
             echo "<div class='success'>✅ Conexão com MySQL - OK</div>";

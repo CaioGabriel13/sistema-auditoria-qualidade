@@ -5,8 +5,7 @@ requerLogin();
 $usuario = getUsuarioAtual();
 
 require_once 'config/database.php';
-$database = new Conexao();
-$db = $database->getConexao();
+$db = getConexao();
 
 // Filtros
 $status_filtro = $_GET['status'] ?? '';

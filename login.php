@@ -12,7 +12,7 @@ if ($_POST) {
     $email = $_POST['email'] ?? '';
     $senha = $_POST['senha'] ?? '';
     
-    if (fazerLogin($email, $senha)) {
+    if (autenticarUsuario($email, $senha)) {
         header('Location: index.php');
         exit();
     } else {

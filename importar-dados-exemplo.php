@@ -13,8 +13,7 @@ $erro = '';
 
 if ($_POST && isset($_POST['importar_dados'])) {
     require_once 'config/database.php';
-    $database = new Conexao();
-    $db = $database->getConexao();
+    $db = getConexao();
     
     try {
         // Ler o arquivo SQL
