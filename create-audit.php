@@ -7,6 +7,9 @@ $usuario = getUsuarioAtual();
 require_once 'config/database.php';
 $db = getConexao();
 
+// Verificar se há um modelo pré-selecionado
+$modelo_pre_selecionado = $_GET['modelo_id'] ?? null;
+
 // Buscar modelos de checklist disponíveis
 $query = "SELECT * FROM modelos_checklist ORDER BY nome";
 $stmt = $db->prepare($query);
@@ -127,7 +130,7 @@ if ($_POST) {
                                 class="w-full px-3 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent">
                             <option value="">Selecione um modelo</option>
                             <?php foreach ($modelos as $modelo): ?>
-                                <option value="<?php echo $modelo['id']; ?>">
+                                <option value="<?php echo $modelo['id']; ?>" <?php echo ($modelo_pre_selecionado == $modelo['id']) ? 'selected' : ''; ?>>
                                     <?php echo htmlspecialchars($modelo['nome']); ?>
                                 </option>
                             <?php endforeach; ?>
