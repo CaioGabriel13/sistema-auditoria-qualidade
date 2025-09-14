@@ -1,52 +1,27 @@
 # QualiTrack - Sistema de Auditoria de Qualidade
 
-**QualiTrack** é um sistema web moderno desenvolvido em PHP para gerenciamento completo de auditorias de qualidade, com foco em checklists de conformidade e acompanhamento de não-conformidades.
+**QualiTrack** é um sistema web desenvolvido em PHP para gerenciamento de auditorias de qualidade baseado em checklists.
 
-## 🚀 Instalação e Configuração
+## 🚀 Instalação
 
 ### Pré-requisitos
-- PHP 7.4 ou superior
-- MySQL 5.7 ou superior  
-- Servidor web (Apache/Nginx) ou XAMPP
-- Git
+- XAMPP (Apache + MySQL + PHP 7.4+)
+- Navegador web moderno
 
-### 1. Clone o Repositório
-```bash
-git clone https://github.com/CaioGabriel13/sistema-auditoria-qualidade.git
-cd sistema-auditoria-qualidade
-```
+### Instalação no XAMPP
 
-### 2. Configuração do Banco de Dados
-```bash
-# Copie o arquivo de exemplo
-cp config/database.example.php config/database.php
+1. **Instale e inicie o XAMPP**
+   - Ative os serviços **Apache** e **MySQL**
 
-# Edite o arquivo config/database.php com suas credenciais
-```
+2. **Instale o sistema**
+   - Extraia os arquivos para: `C:\xampp\htdocs\qualidade\`
+   - Acesse: `http://localhost/qualidade/install.php`
+   - Execute o script de instalação
 
-### 3. Criação do Banco de Dados
-```bash
-# Execute o script SQL no MySQL
-mysql -u root -p < database/qualidade.sql
-
-# (Opcional) Importar dados de exemplo
-mysql -u root -p qualidade < database/dados_exemplo.sql
-```
-
-### 4. Configuração do Servidor Web
-
-#### XAMPP
-1. Coloque os arquivos em `htdocs/qualidade/`
-2. Acesse: `http://localhost/qualidade/`
-
-#### Apache/Nginx
-1. Configure o DocumentRoot para a pasta do projeto
-2. Certifique-se de que o PHP está habilitado
-
-### 5. Primeiro Acesso
-- **URL**: `http://localhost/qualidade/`
-- **Usuário**: admin@qualidade.com
-- **Senha**: password
+3. **Acesse o sistema**
+   - URL: `http://localhost/qualidade/`
+   - Email: admin@qualidade.com
+   - Senha: password
 
 ---
 
