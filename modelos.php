@@ -56,7 +56,7 @@ $modelos = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelos de Checklist - Sistema de Auditoria de Qualidade</title>
+    <title>Modelos de Checklist - QualiTrack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/css/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -71,7 +71,7 @@ $modelos = $stmt->fetchAll();
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h1 class="text-xl font-bold text-foreground">Sistema de Auditoria de Qualidade</h1>
+                    <h1 class="text-xl font-bold text-foreground">QualiTrack</h1>
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -151,19 +151,51 @@ $modelos = $stmt->fetchAll();
                         </div>
                         
                         <div class="relative">
-                            <button onclick="toggleDropdown('dropdown-<?php echo $modelo['id']; ?>')" class="p-1 text-muted-foreground hover:text-foreground rounded-full hover:bg-muted">
-                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"></path>
+                            <button onclick="toggleDropdown('dropdown-<?php echo $modelo['id']; ?>')" class="inline-flex items-center px-3 py-1 text-xs bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+                                <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
+                                Ações
                             </button>
                             
                             <div id="dropdown-<?php echo $modelo['id']; ?>" class="hidden absolute right-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-lg z-10">
                                 <div class="py-1">
-                                    <a href="view-modelo.php?id=<?php echo $modelo['id']; ?>" class="block px-4 py-2 text-sm text-foreground hover:bg-muted">Visualizar</a>
-                                    <a href="edit-modelo.php?id=<?php echo $modelo['id']; ?>" class="block px-4 py-2 text-sm text-foreground hover:bg-muted">Editar</a>
-                                    <a href="duplicate-modelo.php?id=<?php echo $modelo['id']; ?>" class="block px-4 py-2 text-sm text-foreground hover:bg-muted">Duplicar</a>
+                                    <a href="view-modelo.php?id=<?php echo $modelo['id']; ?>" class="flex items-center px-4 py-2 text-sm text-foreground hover:bg-muted">
+                                        <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                        </svg>
+                                        Visualizar
+                                    </a>
+                                    <a href="edit-modelo.php?id=<?php echo $modelo['id']; ?>" class="flex items-center px-4 py-2 text-sm text-foreground hover:bg-muted">
+                                        <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                        </svg>
+                                        Editar
+                                    </a>
+                                    <a href="duplicate-modelo.php?id=<?php echo $modelo['id']; ?>" class="flex items-center px-4 py-2 text-sm text-foreground hover:bg-muted">
+                                        <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                        Duplicar
+                                    </a>
                                     <?php if ($modelo['total_auditorias'] == 0): ?>
-                                        <a href="?delete=<?php echo $modelo['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este modelo?')" class="block px-4 py-2 text-sm text-destructive hover:bg-muted">Excluir</a>
+                                        <div class="border-t border-border my-1"></div>
+                                        <a href="?delete=<?php echo $modelo['id']; ?>" onclick="return confirm('⚠️ Tem certeza que deseja excluir este modelo?\n\nEsta ação não pode ser desfeita!')" class="flex items-center px-4 py-2 text-sm text-destructive hover:bg-destructive/10">
+                                            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                            </svg>
+                                            Excluir
+                                        </a>
+                                    <?php else: ?>
+                                        <div class="border-t border-border my-1"></div>
+                                        <div class="flex items-center px-4 py-2 text-sm text-muted-foreground cursor-not-allowed">
+                                            <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                            </svg>
+                                            Não pode excluir
+                                            <span class="ml-auto text-xs"><?php echo $modelo['total_auditorias']; ?> auditorias</span>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -198,11 +230,18 @@ $modelos = $stmt->fetchAll();
                     
                     <div class="mt-4 flex space-x-2">
                         <a href="view-modelo.php?id=<?php echo $modelo['id']; ?>" 
-                           class="flex-1 px-3 py-2 text-xs text-center bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded transition-colors">
+                           class="flex-1 inline-flex items-center justify-center px-3 py-2 text-xs bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded transition-colors">
+                            <svg class="h-3 w-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
                             Visualizar
                         </a>
                         <a href="edit-modelo.php?id=<?php echo $modelo['id']; ?>" 
-                           class="flex-1 px-3 py-2 text-xs text-center bg-accent text-accent-foreground hover:bg-accent/90 rounded transition-colors">
+                           class="flex-1 inline-flex items-center justify-center px-3 py-2 text-xs bg-accent text-accent-foreground hover:bg-accent/90 rounded transition-colors">
+                            <svg class="h-3 w-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
                             Editar
                         </a>
                     </div>
@@ -230,25 +269,59 @@ $modelos = $stmt->fetchAll();
     <script>
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
+            const button = dropdown.previousElementSibling;
             const allDropdowns = document.querySelectorAll('[id^="dropdown-"]');
+            const allButtons = document.querySelectorAll('button[onclick^="toggleDropdown"]');
             
-            // Fechar todos os outros dropdowns
-            allDropdowns.forEach(d => {
+            // Fechar todos os outros dropdowns e resetar botões
+            allDropdowns.forEach((d, index) => {
                 if (d.id !== id) {
                     d.classList.add('hidden');
+                    allButtons[index]?.classList.remove('bg-accent', 'text-accent-foreground');
+                    allButtons[index]?.classList.add('bg-muted', 'text-muted-foreground');
                 }
             });
             
             // Toggle do dropdown atual
+            const isHidden = dropdown.classList.contains('hidden');
             dropdown.classList.toggle('hidden');
+            
+            // Atualizar visual do botão
+            if (isHidden) {
+                button.classList.remove('bg-muted', 'text-muted-foreground');
+                button.classList.add('bg-accent', 'text-accent-foreground');
+            } else {
+                button.classList.remove('bg-accent', 'text-accent-foreground');
+                button.classList.add('bg-muted', 'text-muted-foreground');
+            }
         }
 
         // Fechar dropdowns ao clicar fora
         document.addEventListener('click', function(event) {
-            if (!event.target.closest('button')) {
+            if (!event.target.closest('button[onclick^="toggleDropdown"]') && !event.target.closest('[id^="dropdown-"]')) {
                 const allDropdowns = document.querySelectorAll('[id^="dropdown-"]');
+                const allButtons = document.querySelectorAll('button[onclick^="toggleDropdown"]');
+                
                 allDropdowns.forEach(d => d.classList.add('hidden'));
+                allButtons.forEach(b => {
+                    b.classList.remove('bg-accent', 'text-accent-foreground');
+                    b.classList.add('bg-muted', 'text-muted-foreground');
+                });
             }
+        });
+
+        // Melhor feedback visual para o botão de exclusão
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteLinks = document.querySelectorAll('a[onclick*="confirm"]');
+            deleteLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Adicionar um pequeno delay para mostrar o feedback visual
+                    this.classList.add('bg-destructive', 'text-white');
+                    setTimeout(() => {
+                        this.classList.remove('bg-destructive', 'text-white');
+                    }, 200);
+                });
+            });
         });
     </script>
 </body>

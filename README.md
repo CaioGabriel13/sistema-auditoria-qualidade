@@ -1,6 +1,6 @@
-# Sistema de Auditoria de Qualidade
+# QualiTrack - Sistema de Auditoria de Qualidade
 
-Sistema web desenvolvido em PHP para gerenciamento de auditorias de qualidade, com foco em checklists de conformidade e acompanhamento de não-conformidades.
+**QualiTrack** é um sistema web moderno desenvolvido em PHP para gerenciamento completo de auditorias de qualidade, com foco em checklists de conformidade e acompanhamento de não-conformidades.
 
 ## 🚀 Instalação e Configuração
 
@@ -12,7 +12,7 @@ Sistema web desenvolvido em PHP para gerenciamento de auditorias de qualidade, c
 
 ### 1. Clone o Repositório
 ```bash
-git clone https://github.com/seu-usuario/sistema-auditoria-qualidade.git
+git clone https://github.com/CaioGabriel13/sistema-auditoria-qualidade.git
 cd sistema-auditoria-qualidade
 ```
 

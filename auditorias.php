@@ -63,7 +63,7 @@ foreach ($stmt->fetchAll() as $row) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditorias - Sistema de Auditoria de Qualidade</title>
+    <title>Auditorias - QualiTrack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/css/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -78,7 +78,7 @@ foreach ($stmt->fetchAll() as $row) {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h1 class="text-xl font-bold text-foreground">Sistema de Auditoria de Qualidade</h1>
+                    <h1 class="text-xl font-bold text-foreground">QualiTrack</h1>
                 </div>
                 
                 <div class="flex items-center space-x-4">
@@ -281,9 +281,11 @@ foreach ($stmt->fetchAll() as $row) {
                                        class="text-chart-1 hover:text-chart-1/80">Visualizar</a>
                                 <?php endif; ?>
                                 
-                                <?php if (podeGerenciar() || $auditoria['auditor_id'] == $usuario['id']): ?>
+                                <?php if (($auditoria['status'] === 'planejado' || $auditoria['status'] === 'em_progresso' || $auditoria['status'] === 'cancelado') && (podeGerenciar() || $auditoria['auditor_id'] == $usuario['id'])): ?>
                                     <a href="edit-audit.php?id=<?php echo $auditoria['id']; ?>" 
-                                       class="text-secondary hover:text-secondary/80">Editar</a>
+                                       class="text-secondary hover:text-secondary/80">
+                                        <?php echo $auditoria['status'] === 'cancelado' ? 'Retomar' : 'Editar'; ?>
+                                    </a>
                                 <?php endif; ?>
                             </td>
                         </tr>

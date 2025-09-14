@@ -60,7 +60,7 @@ $media_aderencia = $stmt->fetch()['media_aderencia'] ?? 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($modelo['nome']); ?> - Sistema de Auditoria de Qualidade</title>
+    <title><?php echo htmlspecialchars($modelo['nome']); ?> - QualiTrack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/css/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">

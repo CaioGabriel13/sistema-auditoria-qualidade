@@ -55,7 +55,7 @@ if ($_POST) {
                 $sucesso = 'Auditoria criada com sucesso!';
                 
                 // Redirecionar para a página de execução da auditoria
-                header("Location: executar-auditoria.php?id=$id_auditoria");
+                header("Location: execute-audit.php?id=$id_auditoria");
                 exit();
             }
         } catch (Exception $e) {
@@ -71,7 +71,7 @@ if ($_POST) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Auditoria - Sistema de Auditoria de Qualidade</title>
+    <title>Nova Auditoria - QualiTrack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/css/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">

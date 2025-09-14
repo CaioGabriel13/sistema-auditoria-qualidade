@@ -90,7 +90,7 @@ $ncs_vencidas = $stmt->fetchColumn();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Não Conformidades - Sistema de Auditoria de Qualidade</title>
+    <title>Não Conformidades - QualiTrack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/css/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -105,7 +105,7 @@ $ncs_vencidas = $stmt->fetchColumn();
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h1 class="text-xl font-bold text-foreground">Sistema de Auditoria de Qualidade</h1>
+                    <h1 class="text-xl font-bold text-foreground">QualiTrack</h1>
                 </div>
                 
                 <div class="flex items-center space-x-4">
